@@ -1,5 +1,7 @@
 package co.eci.edu.ieti.apirest.dto;
 
+import java.util.Date;
+
 public class UserDto {
     private String name;
 
@@ -7,7 +9,7 @@ public class UserDto {
 
     private String lastName;
 
-    private Boolean created;
+    private Date created;
 
     public String getName() {
         return name;
@@ -33,11 +35,11 @@ public class UserDto {
         this.lastName = lastName;
     }
 
-    public Boolean getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(Boolean created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 }

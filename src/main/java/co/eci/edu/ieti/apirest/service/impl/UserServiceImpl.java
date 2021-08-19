@@ -2,10 +2,15 @@ package co.eci.edu.ieti.apirest.service.impl;
 
 import co.eci.edu.ieti.apirest.data.User;
 import co.eci.edu.ieti.apirest.service.UserService;
+import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
+@Repository
 public class UserServiceImpl implements UserService {
+    private final HashMap<String, String> hashMap = new HashMap<String,String>();
+
     @Override
     public User create(User user) {
         return null;
