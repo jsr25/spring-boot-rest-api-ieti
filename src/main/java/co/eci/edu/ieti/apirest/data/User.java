@@ -1,9 +1,11 @@
 package co.eci.edu.ieti.apirest.data;
 
+import co.eci.edu.ieti.apirest.dto.UserDto;
+
 import java.util.Date;
 
 public class User {
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -13,11 +15,17 @@ public class User {
 
     private Date created;
 
-    public Long getId() {
+    public User(UserDto userDto){
+        this.name=userDto.getName();
+        this.email=userDto.getEmail();
+        this.lastName=userDto.getLastName();
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

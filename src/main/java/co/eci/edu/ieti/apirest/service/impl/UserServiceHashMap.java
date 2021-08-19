@@ -4,35 +4,42 @@ import co.eci.edu.ieti.apirest.data.User;
 import co.eci.edu.ieti.apirest.service.UserService;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 @Repository
-public class UserServiceImpl implements UserService {
-    private final HashMap<String, String> hashMap = new HashMap<String,String>();
+public class UserServiceHashMap implements UserService {
+    private final HashMap<String, User> hashMap = new HashMap<String, User>();
 
     @Override
     public User create(User user) {
-        return null;
+        hashMap.put(user.getId(), user);
+        return user;
     }
 
     @Override
     public User findById(String id) {
-        return null;
+        return hashMap.get(id);
     }
 
     @Override
     public List<User> all() {
-        return null;
+        List<User> response = new ArrayList<>();
+        for (String key : hashMap.keySet()) {
+            response.add(hashMap.get(key));
+        }
+        return response;
     }
 
     @Override
     public void deleteById(String id) {
-
+        hashMap.remove(id);
     }
 
     @Override
     public User update(User user, String userId) {
-        return null;
+        hashMap.put(userId,user);
+        return user;
     }
 }
