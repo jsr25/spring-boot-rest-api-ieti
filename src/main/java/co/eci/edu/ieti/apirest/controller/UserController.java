@@ -41,8 +41,12 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> create(@RequestBody UserDto userDto) {
-        //TODO implement this method using UserService
-        return null;
+        try{
+            return new ResponseEntity<>(userService.create(new User(userDto)),HttpStatus.CREATED);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @PutMapping("/{id}")

@@ -5,16 +5,26 @@ import co.eci.edu.ieti.apirest.service.UserService;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 @Repository
 public class UserServiceHashMap implements UserService {
     private final HashMap<String, User> hashMap = new HashMap<String, User>();
+    private int sequence;
+
+    public UserServiceHashMap(){
+        sequence = 0;
+    }
 
     @Override
     public User create(User user) {
+        Date date = new Date();
+        user.setId(sequence+"");
+        user.setCreated(date);
         hashMap.put(user.getId(), user);
+        sequence++;
         return user;
     }
 
