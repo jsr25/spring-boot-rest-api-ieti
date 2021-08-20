@@ -19,6 +19,7 @@ public class User {
         this.name=userDto.getName();
         this.email=userDto.getEmail();
         this.lastName=userDto.getLastName();
+        this.created = userDto.getCreated();
     }
 
     public String getId() {

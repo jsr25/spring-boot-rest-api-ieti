@@ -20,9 +20,7 @@ public class UserServiceHashMap implements UserService {
 
     @Override
     public User create(User user) {
-        Date date = new Date();
         user.setId(sequence+"");
-        user.setCreated(date);
         hashMap.put(user.getId(), user);
         sequence++;
         return user;

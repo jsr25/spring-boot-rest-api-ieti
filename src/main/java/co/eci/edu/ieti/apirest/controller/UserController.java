@@ -51,14 +51,21 @@ public class UserController {
 
     @PutMapping("/{id}")
     public ResponseEntity<User> update(@RequestBody UserDto userDto, @PathVariable String id) {
-        //TODO implement this method using UserService
-        return null;
+        try{
+            return new ResponseEntity<>(userService.update(new User(userDto),id),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable String id) {
-        //TODO implement this method using UserService
-        return null;
+        try{
+            userService.deleteById(id);
+            return new ResponseEntity<>(true,HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(false,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 
