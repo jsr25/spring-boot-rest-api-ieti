@@ -47,6 +47,7 @@ public class UserServiceHashMap implements UserService {
 
     @Override
     public User update(User user, String userId) {
+        user.setId(userId);
         hashMap.put(userId,user);
         return user;
     }
